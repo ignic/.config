@@ -62,6 +62,7 @@ if [[ -e $ICLOUD_DRIVE ]] && [[ ! -e ~/.ssh ]]; then
   chmod 700 ~/.ssh
   chmod -R 600 ~/.ssh/*
   chmod 644 ~/.ssh/authorized_keys
+  chmod 644 ~/.ssh/*.pub
 fi
 
 if [[ -e ~/.config/.git/config ]] && [[ $(cat ~/.config/.git/config | grep github.com:LukeChannings/.config) ]]; then
