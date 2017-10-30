@@ -86,7 +86,7 @@ if [[ $(uname -s) == 'Linux' ]]; then
   ~/.config/install.linux
 fi
 
-ln -Fs /usr/local/bin/nvim /usr/local/bin/vim
+#ln -Fs /usr/local/bin/nvim /usr/local/bin/vim
 fish -c 'fundle install'
 
 # Set FISH as default shell
@@ -94,39 +94,5 @@ echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells
 sudo chsh -s $(brew --prefix)/bin/fish $(whoami)
 
 ln -fs ~/.config/editorconfig ~/.editorconfig
-ln -fs ~/.config/tern/tern_config ~/.tern-config
-ln -fs ~/.config/tmux/config ~/.tmux.conf
-
-# Install global node packages
-npm i -g http-server prettier
-
-# Set up Neovim
-if [[ $SECRETS_LOADED ]]; then
-
-cat > ~/.wakatime.cfg << EOF
-[settings]
-debug = false
-hidefilenames = false
-ignore =
-  COMMIT_EDITMSG$
-  PULLREQ_EDITMSG$
-  MERGE_MSG$
-  TAG_EDITMSG$
-api_key=$WAKATIME_API_KEY
-EOF
-
-fi
-
-pip2 install neovim
-pip3 install neovim
-
-vim +PlugUpgrade +PlugInstall +qall
-
-cd ~/.local/share/nvim/plugged/tern_for_vim
-  npm i
-cd -
-
-cd ~/.local/share/nvim/plugged/YouCompleteMe
-  ./install.py --tern-completer
-cd -
-
+#ln -fs ~/.config/tern/tern_config ~/.tern-config
+#ln -fs ~/.config/tmux/config ~/.tmux.conf
