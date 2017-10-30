@@ -65,7 +65,7 @@ if [[ -e $ICLOUD_DRIVE ]] && [[ ! -e ~/.ssh ]]; then
   chmod 644 ~/.ssh/*.pub
 fi
 
-if [[ -e ~/.config/.git/config ]] && [[ $(cat ~/.config/.git/config | grep github.com:LukeChannings/.config) ]]; then
+if [[ -e ~/.config/.git/config ]] && [[ $(cat ~/.config/.git/config | grep github.com:ignic/.config) ]]; then
   cd ~/.config
   git pull
   cd -
@@ -75,7 +75,7 @@ else
     echo "Found existing ~/.config, moving it to ~/.config.old"
     mv ~/.config ~/.config.old
   fi
-  git clone git@github.com:LukeChannings/.config.git ~/.config
+  git clone git@github.com:ignic/.config.git ~/.config
 fi
 
 if [[ $(uname -s) == 'Darwin' ]]; then
